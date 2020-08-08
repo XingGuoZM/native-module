@@ -10,9 +10,7 @@ export default function Home() {
   return (
     <View className="home">
       <Logo />
-      <Text className="title">Welcome to Your Rax App</Text>
-      <Text className="info">More information about Rax</Text>
-      <Text className="info">Visit https://rax.js.org</Text>
+      <Text className="title">Hello World</Text>
     </View>
   );
 }

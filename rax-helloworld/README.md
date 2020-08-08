@@ -1,15 +1,24 @@
-# rax-helloworld
+# rax-helloworld  
+## 环境
+- macOS 10.15.1  
+- node 12.10.0 
 
-## Getting Started
+## 创建  
+```
+npm init rax rax-helloworld
+```
+## 启动  
+```
+cd rax-helloworld
 
-### `npm run start`
+npm run start
+```
+## 打包  
+```
+npm run build
+```
+## 效果  
 
-Runs the app in development mode.
 
-Open [http://localhost:9999](http://localhost:9999) to view it in the browser.
-
-The page will reload if you make edits.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
+## 参考  
+- [rax官方文档](https://rax.js.org/docs/guide/getting-start)
