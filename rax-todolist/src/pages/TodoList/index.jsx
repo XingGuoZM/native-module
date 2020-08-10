@@ -1,24 +1,34 @@
-import { createElement,useState, useEffect } from 'rax';
+import { createElement,createRef,useState, useEffect } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from "rax-textinput";
-import './index.css';
 
 export default function TodoList() {
   const [value,setValue]=useState([]);
-  const [init,setInit] = useState();
+  const inputRef = createRef();
+  // 添加项
   function handleChange(e){
     value.push(e.value)
     setValue([...value])
-    setInit('')
+    inputRef.current.clear();
   }
+  // 点击画删除线
+  function handleClick(e){
+    e.target.style.textDecoration='line-through'
+  }
+  //value变化更新dom
   useEffect(()=>{},[value])
-  const todolist=value.map((item,index)=>(<Text key={index} className='todo-item'> • {item}</Text>))
+  // list项
+  const todolist=value.map((item,index)=>(<Text 
+    key={index} 
+    style={{height:'40rpx'}} 
+    onClick={(e)=>handleClick(e)}> • {item}</Text>))
   return (
-    <View className="todo-wrapper">
-      <TextInput className='todo-input' 
-        defaultValue={init}
-        autoFocus={true} 
+    <View>
+      <TextInput 
+        style={{border:'solid 1px #ccc'}}
+        ref={inputRef}
+        placeholder='请输入...'
         onChange={(e)=>handleChange(e)}/>
       <View className='todo-list'>{todolist}</View>
     </View>
