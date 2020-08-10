@@ -10,8 +10,7 @@ function Document() {
         <title>rax-longlist</title>
         <Style />
       </head>
-      <body>
-        {/* root container */}
+      <body style={{margin:'0px'}}>
         <Root />
         <Script />
       </body>
