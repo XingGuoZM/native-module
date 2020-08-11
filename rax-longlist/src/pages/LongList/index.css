@@ -1,26 +1,59 @@
+.wrapper{
+  display:flex;
+  height:100%;
+}
+
 .message{
   width:100%;
-  height:5rem;
+  height:3rem;
   background-color:#f2f2f2;
   display:flex;
   justify-content: center;
   align-items: center;
-
+  z-index:999;
 }
 .message-text{
   font-weight: bolder;
 }
-
-.search{
+.more{
+  width:1.5rem;
+  height:1.5rem;
+  position: absolute;
+  right:1rem;
+}
+.search-wrapper{
   width:100%;
-  height:2rem;
   background-color:#f2f2f2;
-  text-align: center;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  padding:0.5rem 0.2rem;
+}
+.search{
+  width:96%;
+  padding-top:0.3rem;
+  padding-bottom:0.3rem;
+  background-color:#fff;
+  border-radius:1px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.search-img{
+  width:1.2rem;
+  height:1.2rem;
+}
+.search-text{
+  color:#ccc;
+  margin-left:0.5rem;
 }
 .list-wrapper{
-
+  flex:1;
+  width:100%;
+  height:calc(100% - 10rem);
+  background-color:#fff;
 }
-
 .list-item{
   display:flex;
   flex-direction: row;
@@ -39,33 +72,67 @@
 .avatar-img{
   width:3.5rem;
   height:3.5rem;
+  border-radius:0.2rem;
 }
 
 .info{
-  border-bottom:0.01rem solid #ccc;
+  border-bottom:0.01rem solid #f2f2f2;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width:18rem;
+  width:18.5rem;
 }
 .info-msg{
-
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-around;
 }
 .info-msg-label{
   font-size:1.2rem;
 }
 
 .info-msg-value{
-  font-size:0.8rem;
+  width:14rem;
+  overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+  font-size:1rem;
   color:#ccc;
 }
 
 .info-time{
-
+  height:3.5rem;
+  margin-right:1rem;
 }
 
 .info-time-label{
   color:#ccc;
   font-size:0.8rem
+}
+
+/* 底部导航 */
+.nav-wrapper{
+  bottom:0rem;
+  height:4rem;
+  width:100%;
+  background-color:#f8f8f8;
+  color:#111;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.nav{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-img{
+  width:2rem;
+  height:2rem;
+}
+.nav-text{
+  font-size:0.7rem;
 }

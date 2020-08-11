@@ -10,7 +10,7 @@ function Document() {
         <title>rax-longlist</title>
         <Style />
       </head>
-      <body style={{margin:'0px'}}>
+      <body style={{margin:'0px',width:'100%',height:'100%',fontSize:'14px'}}>
         <Root />
         <Script />
       </body>
