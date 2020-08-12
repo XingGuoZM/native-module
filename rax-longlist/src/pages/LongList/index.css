@@ -4,9 +4,9 @@
 }
 
 .message{
-  width:100%;
-  height:3rem;
-  background-color:#f2f2f2;
+  width:100vw;
+  height:15vw;
+  background-color:#ebebeb;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -16,23 +16,24 @@
   font-weight: bolder;
 }
 .more{
-  width:1.5rem;
-  height:1.5rem;
+  width:7vw;
+  height:7vw;
   position: absolute;
-  right:1rem;
+  right:5vw;
+  top:5vw;
 }
 .search-wrapper{
   width:100%;
-  background-color:#f2f2f2;
+  background-color:#ebebeb;
   display:flex;
   flex-direction: row;
   justify-content: center;
-  padding:0.5rem 0.2rem;
+  padding:3vw 1vw;
 }
 .search{
   width:96%;
-  padding-top:0.3rem;
-  padding-bottom:0.3rem;
+  padding-top:1vw;
+  padding-bottom:1vw;
   background-color:#fff;
   border-radius:1px;
   display:flex;
@@ -41,28 +42,27 @@
   align-items: center;
 }
 .search-img{
-  width:1.2rem;
-  height:1.2rem;
+  width:5vw;
+  height:5vw;
 }
 .search-text{
   color:#ccc;
-  margin-left:0.5rem;
+  margin-left:1vw;
 }
 .list-wrapper{
   flex:1;
   width:100%;
-  height:calc(100% - 10rem);
   background-color:#fff;
 }
 .list-item{
   display:flex;
   flex-direction: row;
-  height:5rem;
+  height:20vw;
 }
 
 .avatar{
-  width:5rem;
-  height:5rem;
+  width:20vw;
+  height:20vw;
   display:flex;
   flex-direction: row;
   justify-content: center;
@@ -70,52 +70,54 @@
 }
 
 .avatar-img{
-  width:3.5rem;
-  height:3.5rem;
-  border-radius:0.2rem;
+  width:15vw;
+  height:15vw;
+  border-radius:2vw;
 }
 
 .info{
-  border-bottom:0.01rem solid #f2f2f2;
+  border-bottom:0.1vw solid #f2f2f2;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width:18.5rem;
+  width:80vw;
+  height:20vw;
 }
 .info-msg{
-  height: 3.5rem;
+  width:60vw;
+  height: 15vw;
   display: flex;
   justify-content: space-around;
 }
 .info-msg-label{
-  font-size:1.2rem;
+  font-size:4.5vw;
 }
 
 .info-msg-value{
-  width:14rem;
+  width:60vw;
   overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
-  font-size:1rem;
+  font-size:3.5vw;
   color:#ccc;
 }
 
 .info-time{
-  height:3.5rem;
-  margin-right:1rem;
+  height:15vw;
+  margin-right:5vw;
 }
 
 .info-time-label{
   color:#ccc;
-  font-size:0.8rem
+  font-size:3.5vw;
 }
 
 /* 底部导航 */
 .nav-wrapper{
-  bottom:0rem;
-  height:4rem;
-  width:100%;
+  bottom:0vw;
+  height:10vh;
+  width:100vw;
   background-color:#f8f8f8;
   color:#111;
   display:flex;
@@ -130,9 +132,17 @@
   align-items: center;
 }
 .nav-img{
-  width:2rem;
-  height:2rem;
+  width:8vw;
+  height:8vw;
 }
 .nav-text{
-  font-size:0.7rem;
+  font-size:3vw;
+}
+
+.bottom{
+  width:100%;
+  height:10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
