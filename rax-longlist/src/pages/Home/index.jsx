@@ -1,4 +1,4 @@
-import {createElement, createRef, useEffect, useState, Fragment} from 'rax';
+import {createElement, useEffect, useState, Fragment} from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
@@ -18,8 +18,9 @@ export default () => {
     getNavList();
   }, []);
   // 获取消息分页数据
-  function getMsgList() {
+  const getMsgList = () => {
     page++;
+    console.log(page);
     let currPage = getList(page) && getList(page).list;
     if (currPage) {
       list.push(...currPage);
@@ -28,12 +29,12 @@ export default () => {
     } else {
       console.log('到底了');
     }
-  }
+  };
   // 获取底部导航数据
-  function getNavList() {
+  const getNavList = () => {
     let navs = getNav();
     setNav(navs);
-  }
+  };
   // 计算未读消息总条数
   const getSum = () => {
     let allNotRead = 0;
@@ -97,7 +98,7 @@ export default () => {
       <Image className="more" source={{uri: '../../public/images/more.jpg'}} />
     </View>
 
-    <LongList renderContent={() => renderList()} data={list} loadHeight={2} loadmore={() => getMsgList(page)} />
+    <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} />
     {/* 底部导航 */}
     {renderNav()}
   </View>;

@@ -143,8 +143,6 @@ html,body{
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
-
 }
 .nav{
   display:flex;
