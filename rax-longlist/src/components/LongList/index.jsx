@@ -1,6 +1,7 @@
 import { createElement, createRef, useEffect} from 'rax';
 import View from 'rax-view';
 import ScrollView from 'rax-scrollview';
+import './index.css';
 
 const scrollRef = createRef();
 const lastRef = createRef();
