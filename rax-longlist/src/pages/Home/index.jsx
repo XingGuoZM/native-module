@@ -94,7 +94,7 @@ export default () => {
   };
   return <View className="wrapper">
     <View className="message">
-      <Text className="message-text">微信</Text>
+      <Text className="message-text">{sum === 0 ? '微信' : `微信(${sum})`}</Text>
       <Image className="more" source={{uri: '../../public/images/more.jpg'}} />
     </View>
 
