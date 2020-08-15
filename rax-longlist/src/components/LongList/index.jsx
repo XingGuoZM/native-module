@@ -1,7 +1,5 @@
-import { createElement, createRef, useEffect, useState} from 'rax';
+import { createElement, createRef, useEffect} from 'rax';
 import View from 'rax-view';
-import Text from 'rax-text';
-import Image from 'rax-image';
 import ScrollView from 'rax-scrollview';
 
 const scrollRef = createRef();
@@ -15,7 +13,6 @@ export default (props) => {
       // 最底部item的底部到屏幕最上方的距离比上屏幕的距离，我们已知底部导航的高度占屏幕高度的10%
       let distance = y / document.documentElement.clientHeight;
       // 计算比率，检测是否到底了
-      // console.log(distance);
       if (distance < loadHeight || 0.91 && data.length > 0) {
         loadmore();
       }
