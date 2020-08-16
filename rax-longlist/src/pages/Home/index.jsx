@@ -3,10 +3,16 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
 import LongList from '../../components/LongList';
+import Recorder from '../../Log/recorder';
+import { isWeb } from 'universal-env';
+import { setupAppear } from 'appear-polyfill';
 import {getList, getNav} from './mock';
 import './index.css';
 
 let page = 0;
+if (isWeb) {
+  setupAppear();
+}
 export default () => {
   const [list, setList] = useState([]);
   const [nav, setNav] = useState();
@@ -20,14 +26,14 @@ export default () => {
   // 获取消息分页数据
   const getMsgList = () => {
     page++;
-    console.log(page);
+    // console.log(page);
     let currPage = getList(page) && getList(page).list;
     if (currPage) {
       list.push(...currPage);
       setList([...list]);
       getSum();
     } else {
-      console.log('到底了');
+      // console.log('到底了');
     }
   };
   // 获取底部导航数据
@@ -54,8 +60,12 @@ export default () => {
   };
   // 渲染消息列表
   const renderList = () => {
-    const listDom = list && list.map(item => (
-      <View className="list-item" key={item.id} >
+    const listDom = list && list.map(item => {
+      // console.log(item.trackInfo);
+      const trackParams = item.trackInfo.split(',');
+      return <View className="list-item" key={item.id}
+        onAppear={() => Recorder('appear', trackParams[0], trackParams[1], trackParams[2], item.id)}
+        onClick={() => Recorder('click', trackParams[0], trackParams[1], trackParams[2], item.id)}>
         <View className="avatar">
           <Image className="avatar-img" source={{uri: item.image}} />
           {item.notRead && <Text className="msg-count">{item.notRead}</Text>}
@@ -69,8 +79,8 @@ export default () => {
             <Text className="info-time-label">{item.time}</Text>
           </View>
         </View>
-      </View>
-    ));
+      </View>;
+    });
     return <Fragment>
       {/* 搜索框 */}
       {renderSearch()}
