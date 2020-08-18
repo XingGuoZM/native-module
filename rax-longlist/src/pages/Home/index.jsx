@@ -3,7 +3,7 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
 import LongList from '../../components/LongList';
-import Recorder from '../../Log/recorder';
+import Recorder from '../../log/recorder';
 import { isWeb } from 'universal-env';
 import { setupAppear } from 'appear-polyfill';
 import {getList, getNav} from './mock';
@@ -22,12 +22,15 @@ export default () => {
   useEffect(() => {
     getMsgList();
     getNavList();
+    const {timing: {responseStart, navigationStart}} = window.performance;
+    console.log('白屏时间', responseStart - navigationStart);
   }, []);
   // 获取消息分页数据
   const getMsgList = () => {
     page++;
     // console.log(page);
-    let currPage = getList(page) && getList(page).list;
+    let currPage = getList(page);
+    console.log(currPage);
     if (currPage) {
       list.push(...currPage);
       setList([...list]);
