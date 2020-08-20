@@ -28,9 +28,7 @@ export default () => {
   // 获取消息分页数据
   const getMsgList = () => {
     page++;
-    // console.log(page);
     let currPage = getList(page);
-    console.log(currPage);
     if (currPage) {
       list.push(...currPage);
       setList([...list]);

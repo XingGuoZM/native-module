@@ -1,6 +1,7 @@
 import { createElement, createRef, useEffect} from 'rax';
 import View from 'rax-view';
 import ScrollView from 'rax-scrollview';
+import throttle from '../../util/throttle';
 import './index.css';
 
 const scrollRef = createRef();
@@ -15,7 +16,9 @@ export default (props) => {
       let distance = y / document.documentElement.clientHeight;
       // 计算比率，检测是否到底了
       if (distance < loadHeight || 0.91 && data.length > 0) {
-        loadmore();
+        let test = throttle(loadmore, 1000);
+        test();
+        // loadmore();
       }
     });
   }, []);
