@@ -2,10 +2,10 @@
 import mock from '../../mock.json';
 
 export const getList = (page) => {
-  if (page < 1) return [];
-  let res = mock.data[0].list;
+  let res = JSON.parse(JSON.stringify(mock.data[0].list));
   return res.map(item => {
-    item.id = page * 10 + item.id;
+    item.id = (page - 1) * 10 + item.id;
+    item.label = '用户' + item.id;
     return item;
   });
 };

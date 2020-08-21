@@ -29,9 +29,12 @@ export default () => {
   const getMsgList = () => {
     page++;
     let currPage = getList(page);
+
     if (currPage) {
       list.push(...currPage);
       setList([...list]);
+      // console.log(page, list);
+      // console.log(page, list, currPage);
       getSum();
     } else {
       // console.log('到底了');
@@ -61,6 +64,7 @@ export default () => {
   };
   // 渲染消息列表
   const renderList = () => {
+    // console.log('renderList', list);
     const listDom = list && list.map(item => {
       // console.log(item.trackInfo);
       const trackParams = item.trackInfo.split(',');
