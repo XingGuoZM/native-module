@@ -10,7 +10,7 @@
           "image":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597505838293&di=e4e3d667821f4048f45b0dd063344d51&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201507%2F22%2F20150722123545_N5h3L.jpeg",
           "label": "懂得",
           "value":"睡了吗？",
-          "notRead":"10",
+          "notRead":"1",
           "time":"下午 11:39",
           "trackInfo":"weixin,home,list"
         },{
@@ -65,7 +65,7 @@
           "id":8,
           "image":"../../public/images/group.jpg",
           "label": "杭州相亲群",
-          "notRead":"9",
+          "notRead":"1",
           "value":"[999条]熊猫:[链接]入群可分配帅哥美女",
           "time":"下午 11:39",
           "trackInfo":"weixin,home,list"
@@ -81,6 +81,7 @@
           "id":10,
           "image":"../../public/images/article.jpg",
           "label": "订阅号消息",
+          "notRead":"1",
           "value":"[9条]高级前端: 史上最强vue教程整理，最终版",
           "time":"下午 11:39",
           "trackInfo":"weixin,home,list"

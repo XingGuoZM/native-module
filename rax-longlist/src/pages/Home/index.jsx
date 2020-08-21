@@ -33,8 +33,6 @@ export default () => {
     if (currPage) {
       list.push(...currPage);
       setList([...list]);
-      // console.log(page, list);
-      // console.log(page, list, currPage);
       getSum();
     } else {
       // console.log('到底了');
@@ -64,9 +62,7 @@ export default () => {
   };
   // 渲染消息列表
   const renderList = () => {
-    // console.log('renderList', list);
     const listDom = list && list.map(item => {
-      // console.log(item.trackInfo);
       const trackParams = item.trackInfo.split(',');
       return <View className="list-item" key={item.id}
         onAppear={() => Recorder('appear', trackParams[0], trackParams[1], trackParams[2], item.id)}
