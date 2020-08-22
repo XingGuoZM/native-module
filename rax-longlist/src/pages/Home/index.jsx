@@ -4,6 +4,8 @@ import Text from 'rax-text';
 import Image from 'rax-image';
 import LongList from '../../components/LongList';
 import Recorder from '../../log/recorder';
+import RecyclerView from 'rax-recyclerview';
+import VirtureList from '../../components/VirtureList';
 import { isWeb } from 'universal-env';
 import { setupAppear } from 'appear-polyfill';
 import {getList, getNav} from './mock';
@@ -89,6 +91,10 @@ export default () => {
       {listDom}
     </Fragment>;
   };
+  // 渲染消息列表的dom
+  const renderListDom = (data) => {
+
+  };
   // 渲染底部导航
   const renderNav = () => {
     return (<View className="nav-wrapper">
@@ -109,7 +115,9 @@ export default () => {
       <Image className="more" source={{uri: '../../public/images/more.jpg'}} />
     </View>
 
-    <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} />
+    {/* <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} /> */}
+    {/* <LongList /> */}
+    <VirtureList />
     {/* 底部导航 */}
     {renderNav()}
   </View>;
