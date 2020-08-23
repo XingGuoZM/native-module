@@ -27,44 +27,34 @@ export default () => {
       // 最底部item的底部到屏幕最上方的距离比上屏幕的距离，我们已知底部导航的高度占屏幕高度的10%
       currDis = y / document.documentElement.clientHeight;
       // 计算比率，检测是否到底了
-      let down = 0.91;
-      let up = 1.09;
-      console.log('dis', currDis < prevDis);
+      let distance = 0.91;
       // 向上滑动
-      if (currDis < down && currDis < prevDis) {
-        console.log('向上滑动', page);
-
+      if (currDis < distance && currDis < prevDis) {
+        // console.log('向上滑动', page);
         bottomRef.current.style.bottom = `-${100 * page}vh`;
         if (page % 3 === 1) {
           thirdRef.current.style.top = `${100 * page + 100}vh`;
-          console.log('page3');
           setPage3(page + 2);
         } else if (page % 3 === 2) {
           firstRef.current.style.top = `${100 * page + 100}vh`;
-          console.log('page1');
           setPage1(page + 2);
         } else if (page % 3 === 0) {
           secondRef.current.style.top = `${100 * page + 100}vh`;
-          console.log('page2');
           setPage2(page + 2);
         }
         page++;
       // 向下滑动
-      } else if (currDis > down && currDis > prevDis) {
-        console.log('向下滑动', page);
-
+      } else if (currDis > distance && currDis > prevDis) {
+        // console.log('向下滑动', page);
         bottomRef.current.style.bottom = `-${100 * page}vh`;
         if (page % 3 === 1) {
           thirdRef.current.style.top = `${100 * page - 200}vh`;
-          console.log('page3');
           setPage3(page - 1 );
         } else if (page % 3 === 2) {
           firstRef.current.style.top = `${100 * page - 200}vh`;
-          console.log('page1');
           setPage1(page - 1);
         } else if (page % 3 === 0) {
           secondRef.current.style.top = `${100 * page - 200}vh`;
-          console.log('page2');
           setPage2(page - 1);
         }
         page--;
@@ -82,7 +72,5 @@ export default () => {
       <View className="third page" ref={thirdRef} >{page3}</View>
       <View className="bottom" ref={bottomRef}>到底了～</View>
     </View>
-    {/* {list.map(item => <View style={{width: '100vw', height: '20vw', border: '1vw #56bd6a solid', textAlign: 'center'}} key={item}>{item}</View>)} */}
-
   </ScrollView>;
 };

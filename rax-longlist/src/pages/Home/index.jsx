@@ -114,12 +114,12 @@ export default () => {
       <Image className="more" source={{uri: '../../public/images/more.jpg'}} />
     </View>
 
-    {/* <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} /> */}
+    <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} />
     {/* RecyclerList 示例 */}
     {/* <RecyclerList /> */}
 
     {/* VirtureList 示例 */}
-    <VirtureList renderCell={() => renderCell()} data={list} loadmore={() => getMsgList(page)} />
+    {/* <VirtureList renderCell={() => renderCell()} data={list} loadmore={() => getMsgList(page)} /> */}
     {/* 底部导航 */}
     {renderNav()}
   </View>;
