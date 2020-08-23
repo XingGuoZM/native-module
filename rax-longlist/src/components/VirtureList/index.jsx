@@ -24,7 +24,6 @@ export default () => {
   function handleScroll() {
     scrollRef.current._nativeNode.addEventListener('scroll', (e) => {
       let y = bottomRef.current.getBoundingClientRect().bottom;
-      // console.log()
       // 最底部item的底部到屏幕最上方的距离比上屏幕的距离，我们已知底部导航的高度占屏幕高度的10%
       currDis = y / document.documentElement.clientHeight;
       // 计算比率，检测是否到底了
@@ -53,19 +52,20 @@ export default () => {
       // 向下滑动
       } else if (currDis > down && currDis > prevDis) {
         console.log('向下滑动', page);
+
         bottomRef.current.style.bottom = `-${100 * page}vh`;
         if (page % 3 === 1) {
-          thirdRef.current.style.top = `${100 * page - 100}vh`;
+          thirdRef.current.style.top = `${100 * page - 200}vh`;
           console.log('page3');
-          setPage3(page );
+          setPage3(page - 1 );
         } else if (page % 3 === 2) {
-          firstRef.current.style.top = `${100 * page - 100}vh`;
+          firstRef.current.style.top = `${100 * page - 200}vh`;
           console.log('page1');
-          setPage1(page);
+          setPage1(page - 1);
         } else if (page % 3 === 0) {
-          secondRef.current.style.top = `${100 * page - 100}vh`;
+          secondRef.current.style.top = `${100 * page - 200}vh`;
           console.log('page2');
-          setPage2(page );
+          setPage2(page - 1);
         }
         page--;
       }
