@@ -1,0 +1,41 @@
+.com_tabNavStyle{
+  width:750rpx;
+  height:80rpx;
+  overflow-x:auto;
+  overflow-y:hidden;
+  left:0;
+  display:flex;
+  flex-direction: row;
+  background-color:#a40103;
+  position:inherit;
+}
+
+.tabcom_tabNavStyle>div{
+  flex-direction: row !important;
+}
+
+.tabcom_tabNavFixStyle{
+  position:fixed;
+  left:0;
+  z-index:1000;
+}
+
+.tabcom_tabNavItemStyle{
+  height:56rpx;
+  padding:0 29rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  line-height:40rpx;
+  border-radius:28rpx;
+  color:#a40103;
+  background-color:transparent;
+  margin-top:12rpx;
+}
+
+.tabcom_tabNavItemActiveStyle{
+  background-color:#fff;
+  color:#a40103;
+}

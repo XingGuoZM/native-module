@@ -2,7 +2,6 @@ import { createElement, createRef, useEffect} from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import RecyclerView from 'rax-recyclerview';
-import './index.css';
 
 /**
  * 官网recyclerList例子
@@ -42,7 +41,6 @@ let styles = {
 };
 export default (props) => {
   function Thumb(props) {
-    console.log(props);
     return (
       <RecyclerView.Cell>
         <View style={styles.button}>
@@ -52,19 +50,9 @@ export default (props) => {
     );
   }
   let THUMBS = [];
-  for (let i = 0; i < 10000; i++) THUMBS.push(i);
+  for (let i = 0; i < 3000; i++) THUMBS.push(i);
   let createThumbRow = (val, i) => <Thumb key={i} val={i} />;
   return <RecyclerView className="list-wrapper" >
-    <RecyclerView.Header style={styles.sticky}>
-      <Text>Sticky view is not header</Text>
-    </RecyclerView.Header>
-
-    <RecyclerView.Header>
-      <View style={styles.sticky}>
-        <Text>Sticky view must in header root</Text>
-      </View>
-    </RecyclerView.Header>
-
     {THUMBS.map(createThumbRow)}
   </RecyclerView>;
 };

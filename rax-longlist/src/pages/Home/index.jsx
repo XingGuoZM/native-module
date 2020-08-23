@@ -3,9 +3,9 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
 import LongList from '../../components/LongList';
-import Recorder from '../../log/recorder';
-import RecyclerView from 'rax-recyclerview';
+import RecyclerList from '../../components/RecyclerList';
 import VirtureList from '../../components/VirtureList';
+import Recorder from '../../log/recorder';
 import { isWeb } from 'universal-env';
 import { setupAppear } from 'appear-polyfill';
 import {getList, getNav} from './mock';
@@ -91,8 +91,7 @@ export default () => {
       {listDom}
     </Fragment>;
   };
-  // 渲染消息列表的dom
-  const renderListDom = (data) => {
+  const renderCell = () => {
 
   };
   // 渲染底部导航
@@ -116,8 +115,11 @@ export default () => {
     </View>
 
     {/* <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} /> */}
-    {/* <LongList /> */}
-    <VirtureList />
+    {/* RecyclerList 示例 */}
+    {/* <RecyclerList /> */}
+
+    {/* VirtureList 示例 */}
+    <VirtureList renderCell={() => renderCell()} data={list} loadmore={() => getMsgList(page)} />
     {/* 底部导航 */}
     {renderNav()}
   </View>;

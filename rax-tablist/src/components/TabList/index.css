@@ -1,0 +1,8 @@
+.tabcom_slider{
+  display:flex;
+  flex-direction: row;
+}
+.tabcom_fixnavTag{
+  width:100vw;
+  height:0;
+}
