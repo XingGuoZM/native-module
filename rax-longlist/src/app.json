@@ -3,6 +3,10 @@
     {
       "path": "/",
       "source": "pages/Home/index"
+    },
+    {
+      "path": "/marquee",
+      "source": "pages/Marquee/index"
     }
   ],
   "window": {
