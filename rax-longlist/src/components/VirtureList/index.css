@@ -7,30 +7,29 @@
 
 .page-wrap{
   width:100vw;
-  height:100vh;
+  height:200vw;
   position: relative;
 }
 .page{
   width:100vw;
-  height:100vh;
+  height:200vw;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size:50vw;
-
+  overflow:hidden;
 }
 .first{
-
   top:0;
   background-color: #f2f;
 }
 .second{
-  top:100vh;
+  top:200vw;
   background-color: #ff2;
 }
 .third{
-  top:200vh;
+  top:400vw;
   background-color: #2ff;
 }
 .top{

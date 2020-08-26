@@ -16,7 +16,7 @@ if (isWeb) {
   setupAppear();
 }
 export default () => {
-  const [list, setList] = useState([]);
+  let [list, setList] = useState([]);
   const [nav, setNav] = useState();
   // 记录消息总条数
   const [sum, setSum] = useState(0);
@@ -31,7 +31,6 @@ export default () => {
   const getMsgList = () => {
     page++;
     let currPage = getList(page);
-
     if (currPage) {
       list.push(...currPage);
       setList([...list]);
@@ -91,8 +90,25 @@ export default () => {
       {listDom}
     </Fragment>;
   };
-  const renderCell = () => {
-
+  const renderCell = (item) => {
+    const trackParams = item.trackInfo.split(',');
+    return <View className="list-item" key={item.id}
+      onAppear={() => Recorder('appear', trackParams[0], trackParams[1], trackParams[2], item.id)}
+      onClick={() => Recorder('click', trackParams[0], trackParams[1], trackParams[2], item.id)}>
+      <View className="avatar">
+        <Image className="avatar-img" source={{uri: item.image}} />
+        {item.notRead && <Text className="msg-count">{item.notRead}</Text>}
+      </View>
+      <View className="info">
+        <View className="info-msg">
+          <Text className="info-msg-label">{item.label}</Text>
+          <Text className="info-msg-value">{item.value}</Text>
+        </View>
+        <View className="info-time">
+          <Text className="info-time-label">{item.time}</Text>
+        </View>
+      </View>
+    </View>;
   };
   // 渲染底部导航
   const renderNav = () => {
@@ -114,12 +130,12 @@ export default () => {
       <Image className="more" source={{uri: '../../public/images/more.jpg'}} />
     </View>
 
-    <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} />
+    {/* <LongList renderContent={() => renderList()} data={list} loadmore={() => getMsgList(page)} /> */}
     {/* RecyclerList 示例 */}
     {/* <RecyclerList /> */}
 
     {/* VirtureList 示例 */}
-    {/* <VirtureList renderCell={() => renderCell()} data={list} loadmore={() => getMsgList(page)} /> */}
+    <VirtureList renderCell={renderCell} data={list} />
     {/* 底部导航 */}
     {renderNav()}
   </View>;

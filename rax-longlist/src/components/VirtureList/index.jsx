@@ -15,9 +15,13 @@ const secondRef = createRef();
 const thirdRef = createRef();
 
 let page = 1;
-let prevDis = 2;
+
 let currDis = 0;
-export default () => {
+let step = 200;
+let prevDis = 3.25;
+export default (props) => {
+  // console.log(prop)
+  let {renderCell, data} = props;
   let [page1, setPage1] = useState(1);
   let [page2, setPage2] = useState(2);
   let [page3, setPage3] = useState(3);
@@ -27,37 +31,38 @@ export default () => {
       // 最底部item的底部到屏幕最上方的距离比上屏幕的距离，我们已知底部导航的高度占屏幕高度的10%
       currDis = y / document.documentElement.clientHeight;
       // 计算比率，检测是否到底了
-      let distance = 0.91;
+      let distance = step / 100;
       // 向上滑动
-      if (currDis < distance && currDis < prevDis) {
-        // console.log('向上滑动', page);
-        bottomRef.current.style.bottom = `-${100 * page}vh`;
-        if (page % 3 === 1) {
-          thirdRef.current.style.top = `${100 * page + 100}vh`;
+      console.log(currDis, distance);
+      if (currDis < distance && currDis < prevDis ) {
+        console.log('向上滑动', page);
+        bottomRef.current.style.bottom = `-${step * page}vw`;
+        if (page % 3 === 1 && page > 1) {
+          secondRef.current.style.top = `${step * page}vw`;
           setPage3(page + 2);
-        } else if (page % 3 === 2) {
-          firstRef.current.style.top = `${100 * page + 100}vh`;
+        } else if (page % 3 === 2 && page > 2) {
+          thirdRef.current.style.top = `${step * page}vw`;
           setPage1(page + 2);
         } else if (page % 3 === 0) {
-          secondRef.current.style.top = `${100 * page + 100}vh`;
+          firstRef.current.style.top = `${step * page}vw`;
           setPage2(page + 2);
         }
         page++;
       // 向下滑动
       } else if (currDis > distance && currDis > prevDis) {
         // console.log('向下滑动', page);
-        bottomRef.current.style.bottom = `-${100 * page}vh`;
-        if (page % 3 === 1) {
-          thirdRef.current.style.top = `${100 * page - 200}vh`;
-          setPage3(page - 1 );
-        } else if (page % 3 === 2) {
-          firstRef.current.style.top = `${100 * page - 200}vh`;
-          setPage1(page - 1);
-        } else if (page % 3 === 0) {
-          secondRef.current.style.top = `${100 * page - 200}vh`;
-          setPage2(page - 1);
-        }
-        page--;
+        // bottomRef.current.style.bottom = `-${step * page}vw`;
+        // if (page % 3 === 1) {
+        //   thirdRef.current.style.top = `${step * page}vw`;
+        //   setPage3(page - 1 );
+        // } else if (page % 3 === 2) {
+        //   firstRef.current.style.top = `${step * page}vw`;
+        //   setPage1(page - 1);
+        // } else if (page % 3 === 0) {
+        //   secondRef.current.style.top = `${step * page}vw`;
+        //   setPage2(page - 1);
+        // }
+        // page--;
       }
     });
   }
@@ -66,10 +71,13 @@ export default () => {
   }, [page]);
   return <ScrollView className="list-wrapper" ref={scrollRef}>
     <View className="page-wrap">
-      <View className="top" ref={topRef}>到顶了～</View>
-      <View className="first page" ref={firstRef} >{page1}</View>
+      <View className="first page" ref={firstRef} >{data.length > 0 && data.map(item => renderCell(item))}</View>
+      <View className="second page" ref={secondRef} >{data.length > 0 && data.map(item => renderCell(item))}</View>
+      <View className="third page" ref={thirdRef} >{data.length > 0 && data.map(item => renderCell(item))}</View>
+
+      {/* <View className="first page" ref={firstRef} >{page1}</View>
       <View className="second page" ref={secondRef} >{page2}</View>
-      <View className="third page" ref={thirdRef} >{page3}</View>
+      <View className="third page" ref={thirdRef} >{page3}</View> */}
       <View className="bottom" ref={bottomRef}>到底了～</View>
     </View>
   </ScrollView>;
