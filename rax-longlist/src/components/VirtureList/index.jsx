@@ -8,7 +8,6 @@ import './index.css';
 const scrollRef = createRef();
 
 const bottomRef = createRef();
-const topRef = createRef();
 
 const firstRef = createRef();
 const secondRef = createRef();
@@ -32,10 +31,9 @@ export default (props) => {
       currDis = y / document.documentElement.clientHeight;
       // 计算比率，检测是否到底了
       let distance = step / 100;
-      // 向上滑动
-      console.log(currDis, distance);
+      // 加载更多
+      // console.log(currDis, distance);
       if (currDis < distance && currDis < prevDis ) {
-        console.log('向上滑动', page);
         bottomRef.current.style.bottom = `-${step * page}vw`;
         if (page % 3 === 1 && page > 1) {
           secondRef.current.style.top = `${step * page}vw`;
@@ -48,27 +46,29 @@ export default (props) => {
           setPage2(page + 2);
         }
         page++;
-      // 向下滑动
-      } else if (currDis > distance && currDis > prevDis) {
-        // console.log('向下滑动', page);
-        // bottomRef.current.style.bottom = `-${step * page}vw`;
-        // if (page % 3 === 1) {
-        //   thirdRef.current.style.top = `${step * page}vw`;
-        //   setPage3(page - 1 );
-        // } else if (page % 3 === 2) {
-        //   firstRef.current.style.top = `${step * page}vw`;
-        //   setPage1(page - 1);
-        // } else if (page % 3 === 0) {
-        //   secondRef.current.style.top = `${step * page}vw`;
-        //   setPage2(page - 1);
-        // }
-        // page--;
+        console.log('向上滑动', page);
+      // 回看
+      } else if (currDis > 3.4 && currDis > prevDis) {
+        page -= 1;
+        bottomRef.current.style.bottom = `-${step * page}vw`;
+        if (page % 3 === 1 && page > 1) {
+          secondRef.current.style.top = `${step * page - 3 * step}vw`;
+          setPage3(page - 1);
+        } else if (page % 3 === 2 && page > 2) {
+          thirdRef.current.style.top = `${step * page - 3 * step}vw`;
+          setPage1(page - 1);
+        } else if (page % 3 === 0 ) {
+          firstRef.current.style.top = `${step * page - 3 * step}vw`;
+          setPage2(page - 1);
+        }
+        console.log('向下滑动', page);
       }
     });
   }
   useEffect(() => {
     handleScroll();
   }, [page]);
+
   return <ScrollView className="list-wrapper" ref={scrollRef}>
     <View className="page-wrap">
       <View className="first page" ref={firstRef} >{data.length > 0 && data.map(item => renderCell(item))}</View>
