@@ -22,15 +22,15 @@
 }
 .first{
   top:0;
-  background-color: #f2f;
+  /* background-color: #f2f; */
 }
 .second{
   top:200vw;
-  background-color: #ff2;
+  /* background-color: #ff2; */
 }
 .third{
   top:400vw;
-  background-color: #2ff;
+  /* background-color: #2ff; */
 }
 .top{
   width:100%;
