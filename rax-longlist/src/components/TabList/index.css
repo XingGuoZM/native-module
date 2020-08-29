@@ -1,0 +1,12 @@
+.tablist-wrap{
+
+}
+.tablist-nav-wrap{
+  display:flex;
+  flex-direction: row;
+
+}
+.tablist-nav{
+  width:20vw;
+  height:10vw;
+}

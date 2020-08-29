@@ -11,6 +11,10 @@
     {
       "path": "/carousel",
       "source": "pages/Carousel/index"
+    },
+    {
+      "path": "/tablist",
+      "source": "pages/TabList/index"
     }
   ],
   "window": {
