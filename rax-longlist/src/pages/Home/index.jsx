@@ -9,6 +9,7 @@ import Recorder from '../../log/recorder';
 import { isWeb } from 'universal-env';
 import { setupAppear } from 'appear-polyfill';
 import {getList, getNav} from './mock';
+import i18n from '../i18n/index';
 import './index.css';
 
 let page = 0;
@@ -57,7 +58,7 @@ export default () => {
     return (<View className="search-wrapper" >
       <View className="search" >
         <Image className="search-img" source={{uri: '../public/images/search.png'}} />
-        <Text className="search-text">搜索</Text>
+        <Text className="search-text">{i18n('zh', 'search')}</Text>
       </View>
     </View>);
   };
