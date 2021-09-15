@@ -1,16 +1,14 @@
-.marquee-wrap{
-  width: 100vw;
-  height: 20vw;
-  background: #f2f2f2;
-  overflow: hidden;
+.marquee-wrap {
+  width: 2rem;
+  height: 0.8rem;
+  position: absolute;
+  background-color: #fff;
+  overflow:hidden;
 }
-
-.marquee-item{
-  width: 100vw;
-  height: 20vw;
-  color: red;
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
+.marquee-item {
+  width: 2rem;
+  height: 0.8rem;
+  color:red;
   align-items: center;
+  justify-content: center;
 }
